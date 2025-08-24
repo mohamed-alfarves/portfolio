@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mohamed Alfarves | Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --dark-grey: #61737a;
+      --white: #ffffff;
+      --accent: #f39c12;
+      --accent-dark: #e67e22;
+      --shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    * { box-sizing: border-box; margin:0; padding:0 }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; background: var(--dark-grey); color: var(--white); }
+
+    /* NAVBAR */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      display: flex; justify-content: flex-end; gap: 20px;
+      background: rgba(97,115,122,0.95); padding: 15px 30px;
+      z-index: 1000;
+    }
+    .nav a {
+      color: var(--white); text-decoration: none; font-weight: 600;
+      position: relative; transition: color 0.3s;
+    }
+    .nav a::after {
+      content: ""; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+      background: var(--accent); transition: width 0.3s;
+    }
+    .nav a:hover { color: var(--accent); }
+    .nav a:hover::after { width: 100%; }
+
+    /* SECTIONS */
+    section { padding: 100px 20px; }
+    .container { max-width: 1100px; margin: auto; }
+
+    h2 { font-size: 32px; margin-bottom: 20px; text-align: center; }
+
+    /* HERO */
+    #home { background: var(--dark-grey); min-height: 100vh; display: flex; align-items: center; }
+    .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; align-items: center; }
+    .title { font-size: 48px; margin: 10px 0; color: var(--accent); }
+    .tagline { font-size: 20px; font-weight: 600; margin-bottom: 15px; }
+    .btn {
+      display: inline-block; margin: 10px 10px 0 0; padding: 12px 22px;
+      border-radius: 30px; background: var(--accent); color: #fff;
+      text-decoration: none; font-weight: 600;
+      transition: 0.3s; box-shadow: 0 5px 15px rgba(243,156,18,0.4);
+    }
+    .btn:hover { background: var(--accent-dark); transform: translateY(-3px) scale(1.05); }
+    .hero-img { text-align: center; }
+
+    /* SKILLS */
+    #skills { background: var(--white); color: var(--dark-grey); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 20px; }
+    .skill {
+      background: linear-gradient(135deg, #f39c12, #e67e22);
+      color: #fff; padding: 20px; border-radius: 16px; text-align: center;
+      font-weight: 600; box-shadow: var(--shadow); 
+      transition: all 0.3s ease;
+    }
+    .skill:hover { transform: translateY(-8px) scale(1.05); box-shadow: 0 12px 25px rgba(243, 156, 18, 0.5); }
+
+    /* PROJECTS */
+    #projects { background: var(--dark-grey); }
+    .proj-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 20px; }
+    .card {
+      background: #2a2a2a; padding: 20px; border-radius: 16px;
+      box-shadow: var(--shadow); transition: all 0.3s ease;
+    }
+    .card:hover { transform: translateY(-8px) scale(1.05); box-shadow: 0 12px 25px rgba(0,0,0,0.4); }
+    .card img { width: 100%; border-radius: 12px; margin-bottom: 10px; }
+    .chip { display: inline-block; background: var(--accent); padding: 6px 10px; border-radius: 20px; margin: 4px; font-size: 13px; }
+
+    /* EXPERIENCE */
+    #experience { background: var(--white); color: var(--dark-grey); }
+    .exp-card {
+      background: #f7f7f7; padding: 20px; border-radius: 16px;
+      box-shadow: var(--shadow); transition: all 0.3s ease;
+      margin-bottom: 20px;
+    }
+    .exp-card:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 12px 25px rgba(97, 115, 122, 0.5); }
+
+    /* CERTIFICATIONS */
+    #certifications { background: var(--dark-grey); }
+    .cert { background: #2a2a2a; padding: 16px; border-radius: 12px; margin-bottom: 12px; box-shadow: var(--shadow); }
+
+    /* CONTACT */
+    #contact { background: var(--white); color: var(--dark-grey); text-align: center; }
+    .contact a { display: inline-block; margin: 10px 15px; color: var(--dark-grey); text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+    .contact a:hover { color: var(--accent); transform: scale(1.15); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#home">Home</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="container hero">
+      <div>
+        <h1 class="title">Mohamed Alfarves</h1>
+        <div class="tagline" id="typing"></div>
+        <p>
+          MCA graduate and aspiring Software Developer skilled in Java, SQL, HTML, CSS, and JavaScript.
+          I build clean, usable, and impactful applications.
+        </p>
+        <a class="btn" href="#projects">View My Work</a>
+        <a class="btn" href="resume.pdf" target="_blank">📄 Download Resume</a>
+      </div>
+      <div class="hero-img">
+        <!-- Code Window Animation -->
+        <lottie-player src="https://assets9.lottiefiles.com/private_files/lf30_t26law.json"
+          background="transparent" speed="1"
+          style="width: 100%; height: 400px;" loop autoplay>
+        </lottie-player>
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <h2 data-aos="fade-up">Skills & Technologies</h2>
+      <div class="skills-grid">
+        <div class="skill" data-aos="zoom-in">Frontend: HTML, CSS, JavaScript</div>
+        <div class="skill" data-aos="zoom-in">Backend: Core Java (OOPs)</div>
+        <div class="skill" data-aos="zoom-in">Database: SQL</div>
+        <div class="skill" data-aos="zoom-in">Tools: Git, GitHub</div>
+        <div class="skill" data-aos="zoom-in">Extras: Python Basics</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 data-aos="fade-up">Projects</h2>
+      <div class="proj-grid">
+
+        <div class="card" data-aos="fade-right">
+          <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1600" alt="Solar ML">
+          <h3>Solar Power Generation Prediction</h3>
+          <p>Built ML model to predict solar power generation using regression algorithms with feature engineering.</p>
+          <div><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">Scikit-learn</span></div>
+        </div>
+
+        <div class="card" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?q=80&w=1600" alt="Food Website">
+          <h3>Online Food Selling Website</h3>
+          <p>Responsive food ordering site with menu display, cart system, and user-friendly navigation.</p>
+          <div><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
+        </div>
+
+        <div class="card" data-aos="fade-left">
+          <img src="https://cdn-icons-png.flaticon.com/512/992/992658.png" alt="Dice Game">
+          <h3>Dice Game (Race to 100)</h3>
+          <p>Two-player dice game where the first to score 100 wins. Focused on game state & logic.</p>
+          <div><span class="chip">JavaScript</span><span class="chip">DOM</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <h2 data-aos="fade-up">Experience</h2>
+      <div class="exp-card" data-aos="fade-up">
+        <h3>Software Developer Intern</h3>
+        <p><strong>Pantech e-Learning</strong></p>
+        <ul>
+          <li>Developed Solar Power Prediction ML project.</li>
+          <li>Worked on preprocessing, regression algorithms, and visualization.</li>
+          <li>Stack: Python, Pandas, NumPy, Scikit-learn</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="container">
+      <h2 data-aos="fade-up">Certifications</h2>
+      <div class="cert" data-aos="fade-up">Core Java & OOPs — QSpiders (2024)</div>
+      <div class="cert" data-aos="fade-up">HTML & CSS — Udemy (2023)</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 data-aos="fade-up">Contact</h2>
+      <div class="contact">
+        <a href="tel:+917530024804">📞 +91 75300 24804</a>
+        <a href="mailto:mohamedalfarves.s@gmail.com">📧 mohamedalfarves.s@gmail.com</a>
+        <a href="https://www.linkedin.com/in/farves07/" target="_blank">🔗 LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script>
+    // Typing Effect
+    const phrases = ["Software Developer", "Java | SQL | Web Developer", "Clean UX & Strong Logic"];
+    let el = document.getElementById("typing"), i = 0, j = 0, del = false;
+    function type() {
+      let txt = phrases[i];
+      if (!del) {
+        el.textContent = txt.substring(0, j++);
+        if (j <= txt.length) return setTimeout(type, 80);
+        del = true; setTimeout(type, 1200);
+      } else {
+        el.textContent = txt.substring(0, j--);
+        if (j >= 0) return setTimeout(type, 50);
+        del = false; i = (i+1) % phrases.length; setTimeout(type, 200);
+      }
+    }
+    type();
+  </script>
+</body>
+</html>
